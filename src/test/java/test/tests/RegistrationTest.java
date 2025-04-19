@@ -16,6 +16,5 @@ public class RegistrationTest extends utils.BaseTest {
         Assert.assertTrue(registrationPage.isDisplayed(),"The registration page is not displayed");
         registrationPage.registrations(username,email,password,cPassword);
         Assert.assertTrue(registrationPage.isRegistrationSuccessful(),"The registration is not successful");
-        registrationPage.clickLoginPage();
     }
 }
