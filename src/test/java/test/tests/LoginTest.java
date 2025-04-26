@@ -7,9 +7,8 @@ import pages.LoginPage;
 import utils.BaseTest;
 
 public class LoginTest extends BaseTest {
-    private final  String username = "Saifu001";
-    private final String email = "mitid82@aurl.com";
-    private final String password = "12345678";
+    private final String email = System.getProperty("email");
+    private final String password = System.getProperty("password");
 
     @Test
     public void testLogin(){

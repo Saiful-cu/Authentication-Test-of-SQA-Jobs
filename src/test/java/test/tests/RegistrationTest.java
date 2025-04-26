@@ -1,14 +1,14 @@
-package tests;
+package test.tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.RegistrationPage;
 
 public class RegistrationTest extends utils.BaseTest {
-    private final  String username = "Saifu001";
-    private final String email = "mitid82@aurl.com";
-    private final String password = "12345678";
-    private final String cPassword = "12345678";
+    private final  String username = System.getProperty("username");
+    private final String email = System.getProperty("email");
+    private final String password = System.getProperty("password");
+    private final String cPassword = password;
 
     @Test
     public void testRegistration(){
