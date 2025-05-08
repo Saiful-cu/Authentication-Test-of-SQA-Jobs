@@ -4,10 +4,11 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import pages.LandingPage;
 
-public class BaseTest extends DriverManager {
+
+public class BaseTest extends utils.DriverManager {
     @BeforeClass
     public void setUps() {
-        DriverManager.getDriver();
+        utils.DriverManager.getDriver();
         driver.get("https://labsqajobs.qaharbor.com/");
         LandingPage landingPage = new LandingPage();
         landingPage.clickCandidateLink();
@@ -15,6 +16,6 @@ public class BaseTest extends DriverManager {
 
     @AfterClass
     public static void tearDowns(){
-        DriverManager.tearDown();
+        utils.DriverManager.tearDown();
     }
 }
