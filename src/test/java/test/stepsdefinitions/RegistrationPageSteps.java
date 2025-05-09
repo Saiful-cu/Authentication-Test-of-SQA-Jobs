@@ -7,12 +7,12 @@ import pages.LandingPage;
 import pages.SignUpPopup;
 import pages.CandidateRegistrationPage;
 import pages.VerificationPage;
-import utils.DriverFactory;
+import utils.DriverManager;
 
 public class RegistrationSteps {
 
-    private utils.DriverManager DriverFactory;
-    WebDriver driver = DriverFactory.getDriver();
+
+    WebDriver driver = DriverManager.getDriver();
     LandingPage landingPage = PageFactory.initElements(driver, LandingPage.class);
     SignUpPopup signUpPopup = PageFactory.initElements(driver, SignUpPopup.class);
     CandidateRegistrationPage registrationPage = PageFactory.initElements(driver, CandidateRegistrationPage.class);
