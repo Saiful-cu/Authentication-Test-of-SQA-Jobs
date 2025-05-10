@@ -8,9 +8,9 @@ Feature: Registration
     Then the user is redirected to the "Candidate Registration" page
 
   Scenario: Registering a candidate with valid credentials
-    When the user enters a valid "username"
-    And the user enters a valid "email address"
-    And the user enters a valid "password"
-    And the user confirms the password
+    When the user enters a valid username "saiful02"
+    And the user enters a valid email "saiful@email.com"
+    And the user enters a valid password "password"
+    And the user confirms the password "password"
     And the user clicks the "Register" button
     Then the user is redirected to the verification page

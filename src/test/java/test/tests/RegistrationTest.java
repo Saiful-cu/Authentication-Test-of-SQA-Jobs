@@ -2,9 +2,10 @@ package test.tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.RegistrationPage;
+import test.pages.RegistrationPage;
+import test.utils.BaseTest;
 
-public class RegistrationTest extends utils.BaseTest {
+public class RegistrationTest extends BaseTest {
     private final  String username = System.getProperty("username");
     private final String email = System.getProperty("email");
     private final String password = System.getProperty("password");

@@ -1,10 +1,10 @@
-package pages;
+package test.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import utils.DriverManager;
+import test.utils.DriverManager;
+
 
 public class LoginPage extends DriverManager {
     private final By email = By.xpath("//input[@id='email']");

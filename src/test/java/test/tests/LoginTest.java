@@ -2,9 +2,10 @@ package test.tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.AccountPage;
-import pages.LoginPage;
-import utils.BaseTest;
+import test.pages.AccountPage;
+import test.pages.LoginPage;
+import test.pages.RegistrationPage;
+import test.utils.BaseTest;
 
 public class LoginTest extends BaseTest {
     private final String email = System.getProperty("email");
@@ -12,7 +13,7 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void testLogin(){
-        pages.RegistrationPage registrationPage = new pages.RegistrationPage();
+        RegistrationPage registrationPage = new RegistrationPage();
         registrationPage.clickLoginPage();
         LoginPage loginPage = new LoginPage();
         Assert.assertTrue(loginPage.isDisplayed(), "Login page is not displayed");
