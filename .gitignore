@@ -1,8 +1,10 @@
+allure-results/
+logs/
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-
+*.properties
 ### IntelliJ IDEA ###
 .idea/modules.xml
 .idea/jarRepositories.xml
@@ -21,8 +23,7 @@ target/
 .springBeans
 .sts4-cache
 
-allure-results/
-logs/
+
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
