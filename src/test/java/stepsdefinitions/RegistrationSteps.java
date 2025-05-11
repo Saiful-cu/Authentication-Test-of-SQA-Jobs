@@ -1,6 +1,7 @@
 package stepsdefinitions;
 
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
@@ -10,9 +11,9 @@ public class RegistrationSteps {
 
     RegistrationPage registrationPage = new RegistrationPage();
 
-    @Then("the user is redirected to the Candidate Registration page")
+    @Given("the user is on the Candidate Registration page")
     public void theUserIsRedirectedToThePage() {
-        Assert.assertTrue(registrationPage.waitForDisplayed(), "Registration page is not displayed yet");
+        Assert.assertTrue(registrationPage.waitForDisplayed(), "Candidate Registration page is not displayed yet");
     }
 
     @When("the user enters a valid username {string}")
@@ -43,5 +44,10 @@ public class RegistrationSteps {
     @Then("the user is redirected to the verification page")
     public void theUserIsRedirectedToTheVerificationPage() {
         Assert.assertTrue(registrationPage.isRegistrationSuccessful(), "Registration process is not complete properly");
+    }
+
+    @Then("show a error message {string}")
+    public void showAErrorMessage(String message) {
+        Assert.assertEquals(registrationPage.getErrorMessage(message), message, "The error message is not displayed");
     }
 }

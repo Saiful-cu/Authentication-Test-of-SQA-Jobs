@@ -5,6 +5,9 @@ import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public abstract class BasePage extends DriverManager {
     private final By mainLocator;
@@ -38,5 +41,14 @@ public abstract class BasePage extends DriverManager {
         WebElement element = find(locator);
         element.clear();
         element.sendKeys(text);
+    }
+
+    protected List<String> getTextList(By locator) {
+        List<WebElement> elements = driver.findElements(locator);
+        List<String> Texts = new ArrayList<>();
+        for (WebElement element : elements) {
+            Texts.add(element.getText());
+        }
+        return Texts;
     }
 }

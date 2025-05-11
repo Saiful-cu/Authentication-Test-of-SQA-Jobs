@@ -7,7 +7,7 @@ import org.testng.annotations.DataProvider;
 @CucumberOptions(
         plugin = {"pretty"},
         glue = {"stepsdefinitions", "hooks"},
-        features = {"src/test/java/features/registation.feature"}
+        features = {"src/test/java/features/candidateRegistration.feature"}
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
     @Override
