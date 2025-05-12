@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import utils.BasePage;
 
@@ -12,15 +13,23 @@ public class RegistrationPage extends BasePage {
     private final By password = By.xpath("//input[@id='password']");
     private final By email = By.xpath("//input[@id='email']");
     private final By confirmPassword = By.xpath("//input[@id='conf-pass']");
+    private final By usernameError = By.xpath("//div[@id='username__error']");
     private final By errorMessage = By.xpath("//div[@class='error-message']");
+    private final By emailError = By.xpath("//div[@id='email__error']");
+    private final By passwordError = By.xpath("//div[@id='password__error']");
+    private final By conPasswordError = By.xpath("//div[@id='conf-pass__error']");
     private final By submitButton = By.xpath("//button[contains(text(),'REGISTER NOW')]");
     private final By registrationPage = By.xpath("//h1[contains(text(),'Candidate Registration')]");
     private final By successMessage = By.xpath("//div[contains(text(),'A verification mail has been sent to your email address.')]");
     private final By loginPage = By.xpath("//div[contains(@class,'jet-auth-links__login')]");
+    private final WebDriver driver;
 
-    public RegistrationPage() {
+    public RegistrationPage(WebDriver driver) {
         super(By.xpath("//div[@data-id='b3b9130']"), "Registration Page");
+        this.driver = driver;
+
     }
+
 
     public void enterUsername(String u_name) {
         type(username, u_name);
@@ -63,6 +72,22 @@ public class RegistrationPage extends BasePage {
         }
     }
 
+    public String usernameErrors() {
+        return find(usernameError).getText();
+    }
+
+    public String emailErrors() {
+        return find(emailError).getText();
+    }
+
+    public String passErrors() {
+        return find(passwordError).getText();
+    }
+
+    public String confPassErrors() {
+        return find(conPasswordError).getText();
+    }
+    
     public void clickLoginPage() {
         driver.findElement(loginPage).click();
     }

@@ -10,17 +10,20 @@ public class DriverManager {
     public static WebDriver driver;
     public static WebDriverWait wait;
 
-    public static void getDriver() {
+    public static WebDriver getDriver() {
         if (driver == null) {
             driver = new ChromeDriver();
             driver.manage().window().maximize();
-            wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         }
+        return driver;
     }
 
     public static void tearDown() {
         if (driver != null) {
             driver.quit();
+            driver = null;    // <-- important
+            wait = null;
         }
     }
 }

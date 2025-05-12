@@ -5,6 +5,7 @@ import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,10 +22,10 @@ public abstract class BasePage extends DriverManager {
     public boolean waitForDisplayed() {
         try {
             WebElement mainElement = wait.until(ExpectedConditions.visibilityOfElementLocated(mainLocator));
-            System.out.println("[INFO] " + pageName + " is displayed.");
+            System.out.println(MessageFormat.format("[INFO] {0} is displayed.", pageName));
             return mainElement.isDisplayed();
         } catch (TimeoutException e) {
-            System.err.println("[ERROR] " + pageName + " is NOT displayed.");
+            System.err.println(MessageFormat.format("[ERROR] {0} is NOT displayed.", pageName));
             return false;
         }
     }
@@ -50,5 +51,9 @@ public abstract class BasePage extends DriverManager {
             Texts.add(element.getText());
         }
         return Texts;
+    }
+
+    protected void goTo(String link) {
+        driver.get(link);
     }
 }

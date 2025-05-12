@@ -1,44 +1,32 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import utils.DriverManager;
+import utils.BasePage;
 
 
-public class LoginPage extends DriverManager {
+public class LoginPage extends BasePage {
     private final By email = By.xpath("//input[@id='email']");
     private final By password = By.xpath("//input[@id='password']");
     private final By loginButton = By.xpath("//button[contains(text(),'Login')]");
+    private final By errorMessage = By.xpath("//div[contains(@class ,'jet-form-builder-message--error')]");
+
+    public LoginPage() {
+        super(By.xpath("//div[@data-id ='b334dc7']"), "Login Page");
+    }
 
     public void enterEmail(String str) {
-        WebElement emailField = driver.findElement(email);
-        emailField.clear();
-        emailField.sendKeys(str);
+        type(email, str);
     }
 
     public void enterPassword(String pass) {
-        WebElement passwordField = driver.findElement(password);
-        passwordField.clear();
-        passwordField.sendKeys(pass);
+        type(password, pass);
+    }
+    
+    public void clickLoginButton() {
+        clickOn(loginButton);
     }
 
-    public void clickSubmit() {
-        WebElement element = driver.findElement(loginButton);
-//        Actions actions = new Actions(driver);
-//        actions.moveToElement(element).click().perform();
-        element.click();
+    public String getErrorMessage() {
+        return find(errorMessage).getText();
     }
-
-    public void login(String emails, String passwords) {
-        enterEmail(emails);
-        enterPassword(passwords);
-        clickSubmit();
-    }
-
-    public boolean isDisplayed() {
-        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(loginButton));
-        return driver.findElement(loginButton).isDisplayed();
-    }
-
 }

@@ -6,13 +6,14 @@ import utils.DriverManager;
 
 public class Hooks {
     @Before
-    public void setUp() {
+    public static void setUp() {
         DriverManager.getDriver();
-        DriverManager.driver.get("https://labsqajobs.qaharbor.com/candidate-registration/");
+        DriverManager.driver.get("https://labsqajobs.qaharbor.com/candidate-registration");
+
     }
 
     @After
-    public void tearDown() {
+    public static void tearDown() {
         DriverManager.tearDown();
     }
 }
