@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -30,11 +31,12 @@ public class RegistrationPage extends BasePage {
 
     }
 
-
+    @Step("I enter the username ")
     public void enterUsername(String u_name) {
         type(username, u_name);
     }
 
+    @Step("I enter password")
     public void enterPassword(String pass) {
         type(password, pass);
     }
@@ -87,7 +89,7 @@ public class RegistrationPage extends BasePage {
     public String confPassErrors() {
         return find(conPasswordError).getText();
     }
-    
+
     public void clickLoginPage() {
         driver.findElement(loginPage).click();
     }
