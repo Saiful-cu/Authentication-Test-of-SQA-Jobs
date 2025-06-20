@@ -28,4 +28,6 @@ public class LandingPageSteps {
     public void theUserSelectsCandidate() {
         landingPage.selectCandidate();
     }
+
+
 }

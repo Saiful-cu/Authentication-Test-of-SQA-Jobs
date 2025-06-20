@@ -10,9 +10,9 @@ Feature: Job Search Functionality
 
   Scenario: Search jobs by keyword and location
     When I enter "Frontend Developer" into the job search field
-    And I enter "New York" into the location field
+    And I enter "Bangladesh" into the location field
     And I click the search button
-    Then I should see job results related to "Frontend Developer" in "New York"
+    Then I should see job results related to "Frontend Developer" in "Bangladesh"
 
   Scenario: Search with no results
     When I enter "Astronaut Programmer" into the job search field

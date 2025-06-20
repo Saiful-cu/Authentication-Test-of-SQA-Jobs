@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public abstract class BasePage extends DriverManager {
+public class BasePage extends DriverManager {
     private final By mainLocator;
     private final String pageName;
 
