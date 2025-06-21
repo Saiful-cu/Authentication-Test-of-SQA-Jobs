@@ -23,4 +23,4 @@ Feature: Job Search Functionality
     When I enter "Project Manager" into the job search field
     And I select "Remote" from the job type filter
     And I click the search button
-    Then I should see only remote jobs for "Project Manager"
+    Then I should see only "Remote" jobs

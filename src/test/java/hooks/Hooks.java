@@ -8,8 +8,7 @@ public class Hooks {
     @Before
     public static void setUp() {
         DriverManager.getDriver();
-        DriverManager.driver.get("https://labsqajobs.qaharbor.com/candidate-registration");
-
+        DriverManager.driver.get("https://labsqajobs.qaharbor.com/find-jobs/");
     }
 
     @After

@@ -16,8 +16,8 @@ public class JobsPageSteps {
     }
 
     @When("I enter {string} into the job search field")
-    public void iEnterIntoTheJobSearchField(String arg0) {
-        jobsPage.searchJobs(arg0);
+    public void iEnterIntoTheJobSearchField(String jobName) {
+        jobsPage.searchJobs(jobName);
     }
 
     @And("I click the search button")
@@ -43,10 +43,13 @@ public class JobsPageSteps {
     }
 
     @And("I select {string} from the job type filter")
-    public void iSelectFromTheJobTypeFilter(String arg0) {
+    public void iSelectFromTheJobTypeFilter(String jobType) throws InterruptedException {
+        jobsPage.selectVacancyType(jobType);
+        Thread.sleep(10000);
     }
 
-    @Then("I should see only remote jobs for {string}")
-    public void iShouldSeeOnlyRemoteJobsFor(String arg0) {
+    @Then("I should see only {string} jobs")
+    public void iShouldSeeOnlyRemoteJobsFor(String jobType) {
+        Assert.assertTrue(jobsPage.filterDisplayedJobType(jobType));
     }
 }
